@@ -1,0 +1,547 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffe5ef">
+<title>For Aaru, with love 💗</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Trebuchet MS', sans-serif;
+  background: linear-gradient(145deg, #fff0f5, #f5eaff, #ffe4ed);
+  color: #75445e;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  width: min(92%, 520px);
+  margin: auto;
+  padding: 30px 0 50px;
+}
+
+.card {
+  background: rgba(255,255,255,0.78);
+  border: 1px solid white;
+  border-radius: 25px;
+  padding: 24px 18px;
+  margin: 18px 0;
+  box-shadow: 0 8px 25px rgba(190,120,160,0.12);
+  text-align: center;
+}
+
+h1 {
+  color: #d65d91;
+  font-size: 2rem;
+  margin: 12px 0;
+}
+
+h2 {
+  color: #c65c91;
+  font-size: 1.35rem;
+  margin-bottom: 14px;
+}
+
+p {
+  line-height: 1.7;
+  font-size: 0.97rem;
+}
+
+.emoji {
+  font-size: 2.8rem;
+}
+
+.subtitle {
+  color: #a46a8b;
+  margin-top: 8px;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.time-box {
+  background: #fff0f6;
+  border-radius: 15px;
+  padding: 15px 4px;
+}
+
+.time-box strong {
+  display: block;
+  font-size: 1.65rem;
+  color: #d45d91;
+}
+
+.time-box span {
+  font-size: 0.72rem;
+  color: #a46a8b;
+}
+
+.clocks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.clock {
+  background: #fff2f7;
+  border-radius: 16px;
+  padding: 15px 5px;
+}
+
+.clock strong {
+  display: block;
+  color: #c65c91;
+  font-size: 1.15rem;
+  margin-top: 8px;
+}
+
+.clock small {
+  color: #a46a8b;
+}
+
+.route {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 25px 0 15px;
+}
+
+.city {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.plane {
+  flex: 1;
+  border-top: 2px dashed #e6a4c3;
+  position: relative;
+  font-size: 1.5rem;
+  color: #d45d91;
+}
+
+.plane span {
+  position: absolute;
+  left: 42%;
+  top: -19px;
+  animation: fly 3s ease-in-out infinite alternate;
+}
+
+@keyframes fly {
+  from { transform: translateX(-8px) rotate(-8deg); }
+  to { transform: translateX(8px) rotate(8deg); }
+}
+
+button {
+  border: none;
+  background: linear-gradient(135deg, #ed91b7, #c77de0);
+  color: white;
+  padding: 13px 20px;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 8px 3px;
+  box-shadow: 0 5px 12px rgba(190,110,160,0.2);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+.secret {
+  display: none;
+  background: #fff1f7;
+  border-radius: 16px;
+  padding: 17px;
+  margin-top: 14px;
+  line-height: 1.8;
+  animation: appear 0.4s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.kiss-count {
+  font-size: 2rem;
+  color: #d65d91;
+  margin: 10px;
+}
+
+.song-link {
+  display: inline-block;
+  color: #c65c91;
+  font-weight: bold;
+  margin-top: 12px;
+  text-decoration: none;
+  background: #fff0f6;
+  padding: 12px 18px;
+  border-radius: 20px;
+}
+
+.letter {
+  text-align: left;
+  line-height: 1.9;
+  white-space: normal;
+}
+
+.letter p {
+  margin: 12px 0;
+}
+
+.footer {
+  text-align: center;
+  color: #b57b9b;
+  font-size: 0.85rem;
+  margin-top: 28px;
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  pointer-events: none;
+  animation: floatUp 7s linear forwards;
+  z-index: 0;
+  opacity: 0.65;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <header class="card">
+    <div class="emoji">🧸💗</div>
+    <h1>Heyyy, Aaru!</h1>
+    <p class="subtitle">
+      Someone in Bangalore is counting down to your special day...
+    </p>
+    <p style="margin-top:15px;">And that someone is your very own motiiii 🥹</p>
+  </header>
+
+  <section class="card">
+    <div class="emoji">🎂</div>
+    <h2>Until your birthday!</h2>
+    <p>5 December 2026 · Midnight in London 🇬🇧</p>
+
+    <div class="countdown">
+      <div class="time-box">
+        <strong id="days">00</strong>
+        <span>DAYS</span>
+      </div>
+      <div class="time-box">
+        <strong id="hours">00</strong>
+        <span>HOURS</span>
+      </div>
+      <div class="time-box">
+        <strong id="minutes">00</strong>
+        <span>MINUTES</span>
+      </div>
+      <div class="time-box">
+        <strong id="seconds">00</strong>
+        <span>SECONDS</span>
+      </div>
+    </div>
+
+    <p id="countdown-note" style="margin-top:16px;">
+      Every second brings us closer to your day, baby! 💕
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Two cities, one little love story 🌍</h2>
+
+    <div class="clocks">
+      <div class="clock">
+        <div>🇮🇳 Bangalore</div>
+        <strong id="india-time">--:--:--</strong>
+        <small>India time</small>
+      </div>
+      <div class="clock">
+        <div>🇬🇧 London</div>
+        <strong id="london-time">--:--:--</strong>
+        <small>UK time</small>
+      </div>
+    </div>
+
+    <div class="route">
+      <div class="city">Bangalore 💗</div>
+      <div class="plane"><span>✈️</span></div>
+      <div class="city">London 💗</div>
+    </div>
+
+    <p>
+      Miles apart, but if I could send you one thing right now,
+      it would be the biggest hug ever.
+    </p>
+
+    <button onclick="sendHug()">Send him a hug 🤗</button>
+    <p id="hug-message" style="margin-top:10px;"></p>
+  </section>
+
+  <section class="card">
+    <div class="emoji">🤫💌</div>
+    <h2>A little secret for you...</h2>
+    <p>There are some things your moti wants you to know.</p>
+
+    <button onclick="toggleSecret('secret1')">
+      OPEN THIS IF YOU LOVE ME 💗
+    </button>
+
+    <div class="secret" id="secret1">
+      Hehe, I knew you'd open it! 🥹
+      <br><br>
+      I hope you know how special you are to me.
+      Even with all these miles between us, you somehow
+      manage to make my days sweeter.
+      <br><br>
+      Now give your moti some attention. I demand it. 😤💕
+    </div>
+
+    <button onclick="toggleSecret('secret2')">
+      OPEN WHEN YOU MISS ME 🥺
+    </button>
+
+    <div class="secret" id="secret2">
+      Come here, you! 🤗
+      <br><br>
+      Imagine me giving you the tightest hug ever,
+      stealing a kiss, and refusing to let go.
+      <br><br>
+      Distance is temporary. My habit of annoying you
+      is permanent. Hehe. 💗
+    </div>
+
+    <button onclick="toggleSecret('secret3')">
+      ONE MORE SECRET 🙈
+    </button>
+
+    <div class="secret" id="secret3">
+      If I had one wish right now, it would be to
+      magically appear beside you.
+      <br><br>
+      No flights, no time zones, no waiting.
+      Just you and me. 🥹
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="emoji">😘</div>
+    <h2>Sending you kisses!</h2>
+    <p>Because one is obviously never enough.</p>
+
+    <div class="kiss-count" id="kiss-count">0 💋</div>
+    <button onclick="sendKiss()">Tap for a kiss 😘</button>
+    <p id="kiss-message"></p>
+  </section>
+
+  <section class="card">
+    <div class="emoji">🎶</div>
+    <h2>A song that reminds me of you</h2>
+    <p>
+      You know which one... 💗
+      <br>
+      Kyu Nasha Tera Hoya Hoya
+    </p>
+
+    <a class="song-link"
+       href="https://www.youtube.com/results?search_query=Kyu+Nasha+Tera+Hoya+Hoya"
+       target="_blank"
+       rel="noopener noreferrer">
+      Play our song 🎧
+    </a>
+  </section>
+
+  <section class="card">
+    <div class="emoji">🎁💗</div>
+    <h2>A birthday letter for you</h2>
+
+    <div class="letter">
+      <p>My dearest Aaru,</p>
+
+      <p>
+        Happy birthday in advance, youuuu! 🥹
+      </p>
+
+      <p>
+        I wish I could be there beside you when the clock
+        strikes twelve, annoy you in person, steal your
+        attention and make your day extra special.
+      </p>
+
+      <p>
+        Even though we're in two different cities,
+        I hope you feel a little bit of my love reaching
+        all the way from Bangalore to London.
+      </p>
+
+      <p>
+        I hope this new year of your life brings you
+        happiness, success, good health and all the
+        beautiful things you deserve.
+      </p>
+
+      <p>
+        Keep smiling, keep being you, and never forget
+        that there's a girl miles away who is cheering
+        for you and thinking about you.
+      </p>
+
+      <p>
+        And yes, you are stuck with your moti.
+        No returns, no exchanges. 😌💗
+      </p>
+
+      <p>
+        Happy birthday, my favourite human.
+        I wish I could hug you right now.
+      </p>
+
+      <p style="text-align:right; color:#d45d91;">
+        Lots of love,<br>
+        Your motiiiiii 💗
+      </p>
+    </div>
+  </section>
+
+  <div class="footer">
+    Made with a little extra love, just for you 🧸💕
+    <br>
+    Bangalore → London, always.
+  </div>
+
+</div>
+
+<script>
+const birthday = new Date("2026-12-05T00:00:00+00:00");
+
+function updateCountdown() {
+  const now = new Date();
+  const difference = birthday.getTime() - now.getTime();
+
+  if (difference <= 0) {
+    document.getElementById("days").textContent = "00";
+    document.getElementById("hours").textContent = "00";
+    document.getElementById("minutes").textContent = "00";
+    document.getElementById("seconds").textContent = "00";
+    document.getElementById("countdown-note").textContent =
+      "IT'S YOUR BIRTHDAYYYYY! HAPPY BIRTHDAY, AARU! 🎂💗";
+    return;
+  }
+
+  const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((difference / (1000 * 60)) % 60);
+  const seconds = Math.floor((difference / 1000) % 60);
+
+  document.getElementById("days").textContent = String(days).padStart(2, "0");
+  document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+  document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+  document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+}
+
+function updateClocks() {
+  const now = new Date();
+
+  document.getElementById("india-time").textContent =
+    new Intl.DateTimeFormat("en-IN", {
+      timeZone: "Asia/Kolkata",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true
+    }).format(now);
+
+  document.getElementById("london-time").textContent =
+    new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Europe/London",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true
+    }).format(now);
+}
+
+function toggleSecret(id) {
+  const secret = document.getElementById(id);
+  secret.style.display =
+    secret.style.display === "block" ? "none" : "block";
+}
+
+function sendHug() {
+  document.getElementById("hug-message").textContent =
+    "A BIG SQUEEEEEZY HUG has travelled from Bangalore to London! 🤗💗";
+  createHearts(12);
+}
+
+let kisses = 0;
+
+function sendKiss() {
+  kisses++;
+  document.getElementById("kiss-count").textContent = kisses + " 💋";
+
+  document.getElementById("kiss-message").textContent =
+    kisses === 1
+      ? "Your first kiss from your moti! 😘"
+      : "Another one! You're getting spoiled hehe. 💗";
+
+  createHearts(3);
+}
+
+function createHearts(amount = 1) {
+  for (let i = 0; i < amount; i++) {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.textContent = ["💗", "💕", "💖", "❤️", "🩷"][
+      Math.floor(Math.random() * 5)
+    ];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (15 + Math.random() * 20) + "px";
+    heart.style.animationDuration = (5 + Math.random() * 4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 9000);
+  }
+}
+
+updateCountdown();
+updateClocks();
+
+setInterval(updateCountdown, 1000);
+setInterval(updateClocks, 1000);
+
+setInterval(() => createHearts(1), 2200);
+</script>
+
+</body>
+</html>
